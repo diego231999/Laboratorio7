@@ -5,10 +5,105 @@
   <meta charset="utf-8">
   <title>Resultado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--  css -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/resultado.css">
+
+  <!-- jquery  -->
+  <script src="js/vendor/jquery-3.6.0.min.js"></script>
+
+  <!--  data -->
+  <script src="js/resultado.js"></script>
+
 </head>
 
 <body>
 
+  <div class="container">
+    <h1 style="color: white">Resultado de consulta de local de votacion y miembro de mesa</h1>
+  </div>
+
+  <div class="container">
+    <div class="card">
+
+
+      <h6 class="card-title">Nombre:</h6>
+      <p class="card-text" id="nombre"></p>
+
+      <h6 class="card-title">Local de votacion:</h6>
+      <p class="card-text" id="local"></p>
+
+      <h6 class="card-title">Mesa:</h6>
+      <p class="card-text" id="mesa"></p>
+
+    </div>
+
+    <div class="card card-not-hover" id="sorpresa">
+
+      <p>Pase el mouse encima para conocer si es miembro de mesa</p>
+
+    </div>
+
+  </div>
+
+
+
+
 </body>
+
+<script>
+
+  $(document).ready(function() {
+
+    var nombre = nombres[Math.floor(Math.random() * nombres.length)];
+    var apellido1 = apellidos[Math.floor(Math.random() * apellidos.length)];
+    var apellido2 = apellidos[Math.floor(Math.random() * apellidos.length)];
+    $("#nombre").text(nombre+" "+apellido1+ " "+apellido2)
+
+    var local = locales[Math.floor(Math.random() * locales.length)];
+    $("#local").text(local);
+
+    var local = locales[Math.floor(Math.random() * locales.length)];
+    $("#local").text(local);
+
+    var random3digitNumber = Math.floor(Math.random()*(999-100+1)+100);
+    $("#mesa").text(random3digitNumber);
+
+    var yaSeEligio = false;
+    // para la parte de miembro de mesa
+    $( "#sorpresa" ).mouseover(function() {
+
+      if(yaSeEligio === false){
+        yaSeEligio = true
+        var esMiembrodemesa = Math.random() < 0.5;
+
+        if(esMiembrodemesa){
+
+          var cargo = cargos[Math.floor(Math.random() * cargos.length)];
+
+          $("#sorpresa").html(
+            "<p class=\"card-title\">Usted si es miembro de mesa</p>\n" +
+            "<p class=\"card-title\">Cargo:</p>" +
+            "<p class=\"card-text\">"+cargo+"</p>"
+
+          );
+        } else {
+          $("#sorpresa").html(
+            "<p class=\"card-title\">Usted no es miembro de mesa</p>"
+          );
+        }
+      }
+
+
+
+    });
+
+  });
+
+
+
+
+</script>
 
 </html>

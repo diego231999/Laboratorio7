@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Consulta</title>
+
+  <!--  css -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/consulta.css">
+
+  <!-- jquery  -->
+  <script src="js/vendor/jquery-3.6.0.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <img src="img/onpe1.jpg" id="onpeImage" class="img_onpe">
+  <br>
+
+  <form>
+
+    <input id="dni_input" placeholder="Ingrese su DNI">
+    <p class="error_message"></p>
+    <button class="button" type="button">Consultar</button>
+  </form>
+
+</body>
+
+  <script>
+
+    $(document).ready(function() {
+
+      // image onpe
+      $("#onpeImage").click(function() {
+
+        if($("#onpeImage").attr("src") == "img/onpe1.jpg"){
+          $("#onpeImage").attr("src", "img/onpe2.svg");
+        }else if($("#onpeImage").attr("src") == "img/onpe2.svg"){
+          $("#onpeImage").attr("src", "img/onpe1.jpg")
+        }
+
+      });
+
+
+      // submit handler
+      $(".button").click( function()
+        {
+          let str = $("#dni_input").val();
+          if (str.length !== 7 || !$.isNumeric(str)){
+            $(".error_message").text("Error papu")
+          } else{
+            $(location).attr('href', "resultado.html");
+          }
+
+        }
+      );
+    });
+
+  </script>
+
+</html>
