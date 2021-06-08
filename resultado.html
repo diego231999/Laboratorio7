@@ -28,14 +28,14 @@
     <div class="card">
 
 
-      <h6 class="card-title">Nombre:</h6>
-      <p class="card-text" id="nombre"></p>
+      <div class="card-title">Nombre:</div>
+      <div class="card-text" id="nombre"></div>
 
-      <h6 class="card-title">Local de votacion:</h6>
-      <p class="card-text" id="local"></p>
+      <div class="card-title">Local de votacion:</div>
+      <div class="card-text" id="local"></div>
 
-      <h6 class="card-title">Mesa:</h6>
-      <p class="card-text" id="mesa"></p>
+      <div class="card-title">Mesa:</div>
+      <div class="card-text" id="mesa"></div>
 
     </div>
 
@@ -45,7 +45,10 @@
 
     </div>
 
+
   </div>
+
+  <input class="button" type="button" onclick="location.href='consulta.html';" value="Regresar" />
 
 
 
@@ -75,6 +78,8 @@
     $( "#sorpresa" ).mouseover(function() {
 
       if(yaSeEligio === false){
+        $("#sorpresa").removeClass("card-not-hover");
+
         yaSeEligio = true
         var esMiembrodemesa = Math.random() < 0.5;
 
