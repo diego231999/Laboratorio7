@@ -48,8 +48,8 @@
       $(".button").click( function()
         {
           let str = $("#dni_input").val();
-          if (str.length !== 7 || !$.isNumeric(str)){
-            $(".error_message").text("Error papu")
+          if (str.length !== 8 || !$.isNumeric(str) ){
+            $(".error_message").text("El DNI ingresado no es válido")
           } else{
             $(location).attr('href', "resultado.html");
           }
